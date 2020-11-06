@@ -1,0 +1,19 @@
+version: "2.4"
+services:
+
+    scanner-service:
+        build: ./src
+        image: scannerap:1.0.0
+        restart: on-failure
+        privileged: true
+        mem_limit: 100mb
+        networks:
+            - proxy-redirect
+        volumes:
+            - './publish/:/publish/'
+            - './cfg-data/:/cfg-data/'
+
+networks:
+    proxy-redirect:
+        external:
+            name: proxy-redirect
