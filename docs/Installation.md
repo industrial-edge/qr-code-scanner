@@ -31,7 +31,7 @@ The application is desigend for checking for the **enter** character as suffix o
 ### Build docker image
 
 - Open console in the source code folder
-- Use command `docker-compose build` to create the docker image. 
+- Use command `docker-compose build` to create the docker image.
 - This docker image can now be used to build you app with the Industrial Edge App Publisher
 - *docker images | grep scannerapp* can be used to check for the images
 - You should get a result similiar to this:
@@ -42,7 +42,7 @@ The application is desigend for checking for the **enter** character as suffix o
 
 Please find below a short description how to publish your application in your IEM.
 
-For more detailed information please see the section for [uploading apps to the IEM](https://code.siemens.com/industrial-edge-sup/how-to-s/app-uploading-to-iem).
+For more detailed information please see the section for [uploading apps to the IEM](https://github.com/industrial-edge/upload-app-to-iem).
 
 ### Connect your Industrial Edge App Publisher
 
