@@ -71,7 +71,7 @@ You can find the configuration file "param.json" in cfg-data folder. This config
 >        "User": "edge",
 >        "Password": "edge",
 >        "Topic": "ie/d/j/simatic/v1/s7c1/dp/w/PLC_S7P",
->        "Variable": "GDB.appSignals.APP_QRCode"
+>        "Variable": "GDB_appSignals_APP_QRCode"
 >      }
 
 - **Scannertype**: Name of your scanner, which is used in the Linux device tree
