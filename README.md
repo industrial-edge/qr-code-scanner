@@ -8,9 +8,11 @@ Connecting an USB based QR Code Scanner to an Industrial Edge Device
     - [General task](#general-task)
   - [Requirements](#requirements)
     - [Used components](#used-components)
+    - [TIA Project](#tia-project)
     - [Configuring PLC Connection](#configuring-plc-connection)
   - [Installation](#installation)
   - [Usage](#usage)
+  - [Implementation](#implementation)
   - [Documentation](#documentation)
   - [Contribution](#contribution)
   - [Licence and Legal Information](#licence-and-legal-information)
@@ -32,16 +34,24 @@ Scanner type, plc tag, databus topic as well as databus credentials can be confi
 
 ### Used components
 
-- Industrial Edge App Publisher V1.0.8
+- Industrial Edge App Publisher V1.1.5
 - Docker Engine 18.09.6
 - Docker Compose V2.4
-- S7 Connector V 1.0.22
-- S7 Connector Configurator V 1.0.9
-- Industrial Edge Device V 1.0.0-34
+- S7 Connector V1.1.11
+- S7 Connector Configurator V1.1.14
+- IE Databus V1.1.10
+- IE Databus Configurator V1.1.24
+- Industrial Edge Device V1.1.0-44
 - QR Code Scanner: SIMATIC MV320
 - TIA Portal V16
 - PLC: CPU 1511 FW 2.8.3
 
+### TIA Project
+
+The used TIA Portal project can be found in the [miscellenous repository](https://github.com/industrial-edge/miscellenous) under the following name and is also used for several further application examples:
+
+- [tia-tank-application-20201028.7z](https://github.com/industrial-edge/miscellenous/blob/main/tia-tank-application-20201028.7z)
+  
 ### Configuring PLC Connection
 
 Further information about how to configure the S7 Connection to write data to the PLC can be found in the [docs](docs/PLC_connection.md) section
@@ -66,7 +76,14 @@ Go to the TIA Portal Project, start the HMI Runtime and scan any available QR Co
 
 You can also open the GBD datablock in the TIA Portal and check the content of the APP_QRCode variable in the app signals structure.
 
-![QR_Code_Industrial_Edge](./docs/graphics/qr_code_industrial_edge.png)
+![QR_Code_Industrial_Edge](docs/graphics/qr_code_industrial_edge.png)
+
+## Implementation
+
+How to access the USB based QR Code Scanner inside the application as well as further details about the source code can be found in the [implementation section](docs/Implementation.md).
+
+- [Accessing QR Code Scanner](docs/Implementation.md#accessing-qr-code-scanner) inside the application
+- [Publishing QR Code](docs/Implementation.md#accessing-qr-code-scanner) to the IE Databus
 
 ## Documentation
 
@@ -74,7 +91,7 @@ You can also open the GBD datablock in the TIA Portal and check the content of t
 - You can find further documentation and help in the following links
   - [Industrial Edge Hub](https://iehub.eu1.edge.siemens.cloud/#/documentation)
   - [Industrial Edge Forum](https://www.siemens.com/industrial-edge-forum)
-  - [Industrial Edge landing page](https://new.siemens.com/global/en/products/automation/topic-areas/industrial-edge/simatic-edge.html)
+  - [Industrial Edge landing page](http://siemens.com/industrial-edge)
   
 ## Contribution
 

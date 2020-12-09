@@ -64,15 +64,16 @@ For more detailed information please see the section for [uploading apps to the 
 
 You can find the configuration file "param.json" in cfg-data folder. This configuration file can be used adjust several parameters of this application. You can see the structure of the file in the following example configuration:
 
->**param.json**
->
->     {
->        "Scannertype": "Siemens AG MV320",
->        "User": "edge",
->        "Password": "edge",
->        "Topic": "ie/d/j/simatic/v1/s7c1/dp/w/PLC_S7P",
->        "Variable": "GDB_appSignals_APP_QRCode"
->      }
+**param.json**
+```json
+     {
+        "Scannertype": "Siemens AG MV320",
+        "User": "edge",
+        "Password": "edge",
+        "Topic": "ie/d/j/simatic/v1/s7c1/dp/w/PLC_S7P",
+        "Variable": "GDB_appSignals_APP_QRCode"
+      }
+```
 
 - **Scannertype**: Name of your scanner, which is used in the Linux device tree
 - **User**: User of the  S7 Connector databus topic

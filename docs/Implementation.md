@@ -41,19 +41,21 @@ As not all input events should be monitored, but only the events of the QR Code 
 
 The check is done in the **check_for_scanner** function in the **main.py** script. The function lists all devices provided by the evdev libray (list_devices), checks for the scanner name and returns the corresponding event to the main function
 
->**Excerpt from main.py**
->
->     # Check for plugged in Scanner
->     def check_for_scanner(scannertype):
->     # Scan devices
->     devices = [evdev.InputDevice(path) for path in evdev.list_devices()]
->    
->     for device in devices:
->         # Check for Scanner type 
->         if (device.name == scannertype):
->             Get device event
->             scannerevent = device.path
->             return(scannerevent)
+**Excerpt from main.py**
+
+```python
+     # Check for plugged in Scanner
+     def check_for_scanner(scannertype):
+     # Scan devices
+     devices = [evdev.InputDevice(path) for path in evdev.list_devices()]
+    
+     for device in devices:
+         # Check for Scanner type 
+         if (device.name == scannertype):
+             Get device event
+             scannerevent = device.path
+             return(scannerevent)
+```
 
 ## Publishing Code to Databus
 
@@ -65,36 +67,40 @@ This library can be import by: **import paho.mqtt.client** **as** **mqtt**
 
 Before publishing data to the IE Databus the MQTT Client needs to be initialized, the connection to the broker established and the loop for accessing the broker started. As the IE Databus is protected by user and password the credentials needs to be set before connection to the broker.
 
->**Excerpt from main.py**
->
->     # Initialize MQTT Client
->     client = mqtt.Client()
->     # Set username and password, must be created it databus configurator
->     client.username_pw_set(MQTT_USER, MQTT_PASSWORD)
->     # Add callback functions
->     client.on_connect = on_connect
->     # Connect to databus
->     client.connect(MQTT_IP)
->     client.loop_start()
+**Excerpt from main.py**
+
+```python
+     # Initialize MQTT Client
+    client = mqtt.Client()
+     # Set username and password, must be created it databus configurator
+     client.username_pw_set(MQTT_USER, MQTT_PASSWORD)
+     # Add callback functions
+     client.on_connect = on_connect
+     # Connect to databus
+     client.connect(MQTT_IP)
+     client.loop_start()
+```
 
 ### Publishing QR Code
 
 As soon as the suffix (enter character) of the QR Code is detected by the application the scanned code is published to IE Databus. The QR Code as well as the IE Databus topic are printed to the logs using the **print** and **flush** commands.
 
->**Excerpt from main.py**
->
->     # Check for QRCode suffix
->     if event.code == CONST_ENTER:
->         # Check for QRCode suffix
->         # Copy barcode to S7 Connector topic
->         PLC_QR_Code['vals']['val'] = barcode
->         print(PLC_QR_Code)
->         qr_code_json = json.dumps(PLC_QR_Code)
->         # Publish MQTT Topic and flush to logs
->         client.publish(QR_CODE_TOPIC, barcode)
->         client.publish(PLC_QR_CODE_TOPIC, qr_code_json)
->         sys.stdout.flush()
->         barcode = ""
+**Excerpt from main.py**
+
+```python
+     # Check for QRCode suffix
+     if event.code == CONST_ENTER:
+         # Check for QRCode suffix
+         # Copy barcode to S7 Connector topic
+         PLC_QR_Code['vals']['val'] = barcode
+         print(PLC_QR_Code)
+         qr_code_json = json.dumps(PLC_QR_Code)
+         # Publish MQTT Topic and flush to logs
+         client.publish(QR_CODE_TOPIC, barcode)
+         client.publish(PLC_QR_CODE_TOPIC, qr_code_json)
+         sys.stdout.flush()
+         barcode = ""
+```
 
 The mqtt topic of the S7 Connector uses the following format: *{"seq": 1, "vals": {"id": "", "val": ""}}*.
 The sequence number **seq** is optional and has no further value here.

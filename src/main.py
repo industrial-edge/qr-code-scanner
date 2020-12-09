@@ -15,7 +15,7 @@ import json
 # Constants
 #============================
 
-MQTT_IP = 'ie_databus'
+MQTT_IP = 'ie-databus'
 QR_CODE_TOPIC = 'topic1' 
 CONST_CAPS = 42
 CONST_ENTER = 28
