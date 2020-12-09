@@ -52,7 +52,7 @@ The check is done in the **check_for_scanner** function in the **main.py** scrip
      for device in devices:
          # Check for Scanner type 
          if (device.name == scannertype):
-             Get device event
+             # Get device event
              scannerevent = device.path
              return(scannerevent)
 ```
@@ -71,7 +71,7 @@ Before publishing data to the IE Databus the MQTT Client needs to be initialized
 
 ```python
      # Initialize MQTT Client
-    client = mqtt.Client()
+     client = mqtt.Client()
      # Set username and password, must be created it databus configurator
      client.username_pw_set(MQTT_USER, MQTT_PASSWORD)
      # Add callback functions
