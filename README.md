@@ -1,6 +1,6 @@
 # Connecting USB QR Code Scanner
 
-Connecting an USB based QR Code Scanner to an Industrial Edge Device
+Connecting an USB based QR Code Scanner to an Industrial Edge Device.
 
 - [Connecting USB QR Code Scanner](#connecting-usb-qr-code-scanner)
   - [Description](#description)
