@@ -139,5 +139,4 @@ for event in qrdevice.read_loop():
             qr_code_json = json.dumps(PLC_QR_Code)
             my_mqtt_class.client.publish(QR_CODE_TOPIC, barcode)
             my_mqtt_class.client.publish(PLC_QR_CODE_TOPIC, qr_code_json)
-            
             barcode = ""
