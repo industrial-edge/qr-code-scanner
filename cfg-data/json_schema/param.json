@@ -1,0 +1,80 @@
+{
+ "uischema":{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/Scannertype"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/Mqtt_Broker_Server"
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/User"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/Password"
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/Topic"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/Metadata"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/Variable"
+        }
+       ]
+     }
+   ]
+ },
+ "dataschema":{
+  "type": "object",
+  "properties": {
+    "Scannertype": {
+      "title": "Scannertype",
+      "type": "string",
+      "minLength": 1
+    },
+    "User": {
+      "title": "Username",
+      "type": "string"
+    },
+    "Password": {
+      "title": "Password",
+      "type": "string"
+    },
+    "Topic": {
+      "title": "IE Databus topic",
+      "type": "string"
+    },
+    "Variable": {
+      "title": "PLC Varibale",
+      "type": "string"
+    },
+    "Metadata": {
+      "title": "Metadata",
+      "type": "string" 
+    },
+    "Mqtt_Broker_Server": {
+      "title": "MQTT Broker",
+      "type": "string" 
+    }
+  },
+   "required": ["Scannertype", "User", "Password","Topic","Variable", "Metadata", "Mqtt_Broker_Server"]
+ }
+}
