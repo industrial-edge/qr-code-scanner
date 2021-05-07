@@ -4,7 +4,7 @@ services:
     #### QR scanner service ####
     scanner-service:
         build: ./src
-        image: scannerap:1.6.0
+        image: scannerap:1.2.0
         restart: on-failure
         privileged: true
         mem_limit: 100mb
