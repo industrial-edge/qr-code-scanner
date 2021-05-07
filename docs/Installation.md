@@ -66,19 +66,23 @@ You can find the configuration file "param.json" in cfg-data folder. This config
 
 **param.json**
 ```json
-     {
-        "Scannertype": "Siemens AG MV320",
+    {
+        "Scannertype": "Siemens AG MV320", 
+        "Mqtt_Broker_Server": "ie-databus",
         "User": "edge",
         "Password": "edge",
-        "Topic": "ie/d/j/simatic/v1/s7c1/dp/w/PLC_S7P",
+        "Metadata": "ie/m/j/simatic/v1/s7c1/dp",
+        "Topic": "ie/d/j/simatic/v1/s7c1/dp/w/PLC_S7",
         "Variable": "GDB_appSignals_APP_QRCode"
-      }
+    }
 ```
 
 - **Scannertype**: Name of your scanner, which is used in the Linux device tree
+- **Mqtt_Broker_Server**: Service name of the IE Databus
 - **User**: User of the  S7 Connector databus topic
 - **Password**: Password of the  S7 Connector databus topic
-- **Topic**: The connection name of the S7 Connector connection, which is used to send the scanned code to the PLC. The topic consists of the default S7 Connector topic `ie/d/j/simatic/v1/s7c1/dp/w` and the *connection name* configured in the S7 Connector Configurator (Here `PLC_S7P`)
+- **Metadata**: Topic of the metadata of the used connector
+- **Topic**: The connection name of the S7 Connector connection, which is used to send the scanned code to the PLC. The topic consists of the default S7 Connector topic `ie/d/j/simatic/v1/s7c1/dp/w` and the *connection name* configured in the S7 Connector Configurator (Here `PLC_S7`)
 - **Variable**: The name of the variable, which is configured in the S7 Connector
 
 Adjust the configuration file depending on your needs.

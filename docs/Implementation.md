@@ -24,8 +24,8 @@ To enable the access to the hosts devices, the application needs to run in privi
 >**Excerpt from docker-compose.yml**
 >
 >     scanner-service:
->        build: .
->        image: scannerap:1.0.0
+>        build: ./src
+>        image: scannerap:1.2.0
 >        restart: on-failure
 >        privileged: true
 >        mem_limit: 100mb
@@ -70,15 +70,21 @@ Before publishing data to the IE Databus the MQTT Client needs to be initialized
 **Excerpt from main.py**
 
 ```python
-     # Initialize MQTT Client
-     client = mqtt.Client()
      # Set username and password, must be created it databus configurator
-     client.username_pw_set(MQTT_USER, MQTT_PASSWORD)
-     # Add callback functions
-     client.on_connect = on_connect
-     # Connect to databus
-     client.connect(MQTT_IP)
-     client.loop_start()
+        self.client.username_pw_set(self.mqtt_user, self.mqtt_password)
+        # Connect to databus
+        self.client.connect(self.broker)
+        self.client.loop_start()
+```
+
+The mqtt connection is handled by the  the `class mqttclient`, which is initialized when creating the class object. All needed parameters are handed over by the class constructor and can be configured using the [config file](../cfg-data/param.json).
+
+**Excerpt from main.py**
+
+```python
+    # Initialize mqtt client object with paramter from the config file and starts the connection to the broker 
+    my_mqtt_client = mqttclient('scanner-service',mqtt_broker_server, mqtt_user, mqtt_password, meta_data_topic, connection_name)
+    my_mqtt_client.start_connection()
 ```
 
 ### Publishing QR Code
@@ -90,22 +96,31 @@ As soon as the suffix (enter character) of the QR Code is detected by the applic
 ```python
      # Check for QRCode suffix
      if event.code == CONST_ENTER:
-         # Check for QRCode suffix
-         # Copy barcode to S7 Connector topic
-         PLC_QR_Code['vals']['val'] = barcode
-         print(PLC_QR_Code)
-         qr_code_json = json.dumps(PLC_QR_Code)
-         # Publish MQTT Topic and flush to logs
-         client.publish(QR_CODE_TOPIC, barcode)
-         client.publish(PLC_QR_CODE_TOPIC, qr_code_json)
-         sys.stdout.flush()
-         barcode = ""
+        # Copy barcode to S7 Connector topic
+        PLC_QR_Code['vals'][0]['id'] = (my_mqtt_client.IDDict.get(params['Variable']))
+        PLC_QR_Code['vals'][0]['val'] = barcode
+        # Publish MQTT Topic and flush to logs
+        PLC_QR_Code_Str = json.dumps(PLC_QR_Code)
+        my_mqtt_client.client.publish(plc_qrcode_topic, PLC_QR_Code_Str)
+        print("INFO | Scanned code: " + barcode)
+        print("INFO | Code published to the following topic: " + PLC_QR_Code_Str)
+        sys.stdout.flush()
+        barcode = ""
 ```
 
-The mqtt topic of the S7 Connector uses the following format: *{"seq": 1, "vals": {"id": "", "val": ""}}*.
-The sequence number **seq** is optional and has no further value here.
+The mqtt topic of the S7 Connector for writing to the PLC uses the following format:
 
+```json 
+{
+  "seq": 1, 
+  "vals": [
+      {"id": "", "val": ""}
+    ]
+} 
+```
+
+The sequence number **seq** is optional and has no further value here.
 The **vals** structure describes the datablock variable of the PLC and consinst the
 
-- **id**: Variable name, defined in the S7 Connector. In this case *GDB_appSignals_APP_QRCode*
+- **id**: Variable id, defined in the meta data of the connection.
 - **val**: Value of the variable. In this case the *QR Code*.
