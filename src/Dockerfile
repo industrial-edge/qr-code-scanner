@@ -12,5 +12,6 @@ RUN apk add build-base  && \
     apk del build-base
 
 COPY main.py .
+COPY createDict.py .
 
 CMD [ "python", "./main.py" ]
