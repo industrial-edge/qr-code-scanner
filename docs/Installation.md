@@ -8,8 +8,7 @@
   - [Upload Scanner App to the Industrial Edge Managment](#upload-scanner-app-to-the-industrial-edge-managment)
     - [Connect your Industrial Edge App Publisher](#connect-your-industrial-edge-app-publisher)
     - [Upload Scanner App suing the Industrial Edge App Publisher](#upload-scanner-app-suing-the-industrial-edge-app-publisher)
-  - [Deploying of QR Code Scanner Demo](#deploying-of-qr-code-scanner-demo)
-    - [Configuring application](#configuring-application)
+  - [Configuring application](#configuring-application)
   - [Create & Deploy configuration file](#create--deploy-configuration-file)
     - [Configuration via template file](#configuration-via-template-file)
     - [Configuration via JSON Schema UI](#configuration-via-json-schema-ui)
@@ -58,9 +57,7 @@ For more detailed information please see the section for [uploading apps to the 
 - **Start Upload** to transfer the app to Industrial Edge Managment
 - Further information about using the Industrial Edge App Publisher can be found in the [IE Hub](https://iehub.eu1.edge.siemens.cloud/documents/appPublisher/en/start.html)
 
-## Deploying of QR Code Scanner Demo
-
-### Configuring application
+## Configuring application
 
 You can find the configuration file ["param.json"](../cfg-data/param.json) in cfg-data folder. This configuration file can be used adjust several parameters of this application. You can see the structure of the file in the following example configuration:
 
@@ -116,12 +113,15 @@ During the deploying process of the application you need to select the configura
 
 ### Configuration via JSON Schema UI
 
-Using the JSON Schema option your application can be configured via graphical UI during downloading of your application. All needed parameters can be configured in the UI: ![schema](./graphics/json_schema_ui.png)
+Using the JSON Schema option the application can be configured via graphical UI during downloading of the application. All needed parameters can be configured in the UI:
+![schema](./graphics/json_schema_ui.png)
 
 **Add Configuration**
 
-Before [uploading](#upload-scanner-app-to-the-industrial-edge-managment) your application with the Industrial Edge Publisher you can add the JSON Schema there. Add a new configuration (in the Publisher), select the JSON Schema option and upload the [JSON Schema file](../cfg-data/json_schema/). ![json_configuration](./graphics/json_schema_configuration.png).
-During downloading of the QR Code Scanner application you can now select the added JSON Schema and configure you application via the configuration UI.
+Before [uploading](#upload-scanner-app-to-the-industrial-edge-managment) the application with the Industrial Edge Publisher you can add the JSON Schema via the **"+Configurations"** button. Add a new configuration (in the IE Publisher), select the JSON Schema option and upload the [JSON Schema file](../cfg-data/json_schema/).
+![json_configuration](./graphics/json_schema_configuration.png)
+
+During downloading of the QR Code Scanner application you can now select the added JSON Schema and configure the application via the configuration UI.
 
 Additional information about creating your own JSON Schema UI can be found:
 - https://jsonforms.io/
