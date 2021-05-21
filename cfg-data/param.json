@@ -1,5 +1,4 @@
- 
-{
+ {
     "Scannertype": "Siemens AG MV320", 
     "Mqtt_Broker_Server": "ie-databus",
     "User": "edge",
