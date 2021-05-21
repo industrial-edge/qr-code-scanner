@@ -7,7 +7,7 @@
     - [Build docker image](#build-docker-image)
   - [Upload Scanner App to the Industrial Edge Managment](#upload-scanner-app-to-the-industrial-edge-managment)
     - [Connect your Industrial Edge App Publisher](#connect-your-industrial-edge-app-publisher)
-    - [Upload Scanner App suing the Industrial Edge App Publisher](#upload-scanner-app-suing-the-industrial-edge-app-publisher)
+    - [Upload Scanner App using the Industrial Edge App Publisher](#upload-scanner-app-using-the-industrial-edge-app-publisher)
   - [Configuring application](#configuring-application)
   - [Create & Deploy configuration file](#create--deploy-configuration-file)
     - [Configuration via template file](#configuration-via-template-file)
@@ -48,7 +48,7 @@ For more detailed information please see the section for [uploading apps to the 
 - Connect your Industrial Edge App Publisher to your docker engine
 - Connect your Industrial Edge App Publisher to your Industrial Edge Managment System
 
-### Upload Scanner App suing the Industrial Edge App Publisher
+### Upload Scanner App using the Industrial Edge App Publisher
 
 - Create a new application using the Industrial Publisher
 - Add a app new version
