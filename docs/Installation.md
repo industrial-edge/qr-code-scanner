@@ -131,6 +131,6 @@ During downloading of the QR Code Scanner application you can now select the add
 
 **Additional information** 
 
-Further informarion about creating your own JSON Schema UI can be found:
+Further information about creating your own JSON Schema UI can be found:
 - https://jsonforms.io/
 - https://jsonforms-editor.netlify.app/
