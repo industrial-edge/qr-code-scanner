@@ -114,15 +114,23 @@ During the deploying process of the application you need to select the configura
 ### Configuration via JSON Schema UI
 
 Using the JSON Schema option the application can be configured via graphical UI during downloading of the application. All needed parameters can be configured in the UI:
+
+**Configure application**
+
 ![schema](./graphics/json_schema_ui.png)
 
 **Add Configuration**
 
 Before [uploading](#upload-scanner-app-to-the-industrial-edge-managment) the application with the Industrial Edge Publisher you can add the JSON Schema via the **"+Configurations"** button. Add a new configuration (in the IE Publisher), select the JSON Schema option and upload the [JSON Schema file](../cfg-data/json_schema/).
+
+**Add JSON Schema**
+
 ![json_configuration](./graphics/json_schema_configuration.png)
 
 During downloading of the QR Code Scanner application you can now select the added JSON Schema and configure the application via the configuration UI.
 
-Additional information about creating your own JSON Schema UI can be found:
+**Additional information** 
+
+Further informarion about creating your own JSON Schema UI can be found:
 - https://jsonforms.io/
 - https://jsonforms-editor.netlify.app/
