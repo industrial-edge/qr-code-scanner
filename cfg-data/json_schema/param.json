@@ -3,47 +3,68 @@
   "type": "VerticalLayout",
   "elements": [
     {
-      "type": "Control",
-      "scope": "#/properties/Scannertype"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/Mqtt_Broker_Server"
-    },
-    {
-      "type": "HorizontalLayout",
+      "type": "Group",
       "elements": [
         {
           "type": "Control",
-          "scope": "#/properties/User"
-        },
-        {
-          "type": "Control",
-          "scope": "#/properties/Password"
+          "scope": "#/properties/Scannertype"
         }
-      ]
+      ],
+      "label": "QR Scanner"
     },
     {
-      "type": "HorizontalLayout",
+      "type": "Group",
       "elements": [
         {
           "type": "Control",
-          "scope": "#/properties/Topic"
+          "scope": "#/properties/Mqtt_Broker_Server"
         },
         {
-          "type": "Control",
-          "scope": "#/properties/Metadata"
-        },
-        {
-          "type": "Control",
-          "scope": "#/properties/Variable"
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/User"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/Password"
+            }
+          ]
         }
-       ]
-     }
-   ]
- },
+      ],
+      "label": "IE Databus credentials"
+    },
+    {
+      "type": "Group",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Topic"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/Metadata"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/Variable"
+            }
+          ]
+        }
+      ],
+      "label": "IE Databus topics"
+    }
+  ]
+},
  "dataschema":{
   "type": "object",
+  "required": [
+    "Scannertype", "User", "Password", "Topic", "Variable", "Metadata", "Mqtt_Broker_Server"
+  ],
   "properties": {
     "Scannertype": {
       "title": "Scannertype",
@@ -52,29 +73,38 @@
     },
     "User": {
       "title": "Username",
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "Password": {
       "title": "Password",
-      "type": "string"
+      "type": "string",
+	  "minLength": 1
     },
     "Topic": {
       "title": "IE Databus topic",
-      "type": "string"
+	  "default": "ie/d/j/simatic/v1/s7c1/dp/w/PLC_S7",
+      "type": "string",
+	  "minLength": 1
     },
     "Variable": {
       "title": "PLC Varibale",
-      "type": "string"
+	  "default": "GDB_appSignals_APP_QRCode",
+      "type": "string",
+	  "minLength": 1
     },
     "Metadata": {
       "title": "Metadata",
-      "type": "string" 
+	  "default": "ie/m/j/simatic/v1/s7c1/dp",
+      "type": "string",
+	  "minLength": 1
     },
     "Mqtt_Broker_Server": {
       "title": "MQTT Broker",
-      "type": "string" 
+	  "default": "ie-databus",
+      "type": "string",
+	  "minLength": 1
     }
-  },
-   "required": ["Scannertype", "User", "Password","Topic","Variable", "Metadata", "Mqtt_Broker_Server"]
+  }
  }
 }

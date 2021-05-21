@@ -7,12 +7,11 @@
     - [Build docker image](#build-docker-image)
   - [Upload Scanner App to the Industrial Edge Managment](#upload-scanner-app-to-the-industrial-edge-managment)
     - [Connect your Industrial Edge App Publisher](#connect-your-industrial-edge-app-publisher)
-    - [Upload Scanner App suing the Industrial Edge App Publisher](#upload-scanner-app-suing-the-industrial-edge-app-publisher)
-  - [Deploying of QR Code Scanner Demo](#deploying-of-qr-code-scanner-demo)
-    - [Configuring application](#configuring-application)
-    - [Create & Deploy configuration file](#create--deploy-configuration-file)
-      - [Create configuration](#create-configuration)
-      - [Deploy application with configuration file](#deploy-application-with-configuration-file)
+    - [Upload Scanner App using the Industrial Edge App Publisher](#upload-scanner-app-using-the-industrial-edge-app-publisher)
+  - [Configuring application](#configuring-application)
+  - [Create & Deploy configuration file](#create--deploy-configuration-file)
+    - [Configuration via template file](#configuration-via-template-file)
+    - [Configuration via JSON Schema UI](#configuration-via-json-schema-ui)
   
 ## Configure QR Code Scanner
 
@@ -49,7 +48,7 @@ For more detailed information please see the section for [uploading apps to the 
 - Connect your Industrial Edge App Publisher to your docker engine
 - Connect your Industrial Edge App Publisher to your Industrial Edge Managment System
 
-### Upload Scanner App suing the Industrial Edge App Publisher
+### Upload Scanner App using the Industrial Edge App Publisher
 
 - Create a new application using the Industrial Publisher
 - Add a app new version
@@ -58,11 +57,9 @@ For more detailed information please see the section for [uploading apps to the 
 - **Start Upload** to transfer the app to Industrial Edge Managment
 - Further information about using the Industrial Edge App Publisher can be found in the [IE Hub](https://iehub.eu1.edge.siemens.cloud/documents/appPublisher/en/start.html)
 
-## Deploying of QR Code Scanner Demo
+## Configuring application
 
-### Configuring application
-
-You can find the configuration file "param.json" in cfg-data folder. This configuration file can be used adjust several parameters of this application. You can see the structure of the file in the following example configuration:
+You can find the configuration file ["param.json"](../cfg-data/param.json) in cfg-data folder. This configuration file can be used adjust several parameters of this application. You can see the structure of the file in the following example configuration:
 
 **param.json**
 ```json
@@ -87,24 +84,53 @@ You can find the configuration file "param.json" in cfg-data folder. This config
 
 Adjust the configuration file depending on your needs.
 
-### Create & Deploy configuration file
+## Create & Deploy configuration file
 
-#### Create configuration
+The system offers several possiblites configuring your application. The following steps describes two available options:
 
-Once you have successfully uploaded the QR Code Scanner application to your IEM you need to add the mentioned configuration file to your application. You can either choose between version and non versioned configuration files. The non version configuration file will be described in the next steps.
-Go to **Applications/** **My Projects** and open the QR Code Scanner application. Here you can create a new configuration file.
+- Configuring via [Template File](#configuration-via-template-file)
+- Configuring via [JSON Schema UI](#configuration-via-json-schema-ui)
 
-**Add** **Configuration**
+### Configuration via template file
+
+Once you have successfully uploaded the QR Code Scanner application to your IEM you need to add the [configuration file](../cfg-data/param.json) to your application. You can either choose between version and non versioned configuration files. The non version configuration file will be described in the next steps.
+Go to **Applications/ My Projects** and open the QR Code Scanner application. Here you can create a new configuration file.
+
+**Add Configuration**
 
 ![deploy VFC](./graphics/add_config_file.png)
 **Configure** **Configuration**
 
 ![deploy VFC](./graphics/configure_config.png)
 
-#### Deploy application with configuration file
+**Deploy application with configuration file**
 
 During the deploying process of the application you need to select the configuration file, if needed you can adapt the configuration file before deploying.
 
 **Deploy** **Application**
 
 ![deploy VFC](./graphics/deploy_config.png)
+
+### Configuration via JSON Schema UI
+
+Using the JSON Schema option the application can be configured via graphical UI during downloading of the application. All needed parameters can be configured in the UI:
+
+**Configure application**
+
+![schema](./graphics/json_schema_ui.png)
+
+**Add Configuration**
+
+Before [uploading](#upload-scanner-app-to-the-industrial-edge-managment) the application with the Industrial Edge Publisher you can add the JSON Schema via the **"+Configurations"** button. Add a new configuration (in the IE Publisher), select the JSON Schema option and upload the [JSON Schema file](../cfg-data/json_schema/).
+
+**Add JSON Schema**
+
+![json_configuration](./graphics/json_schema_configuration.png)
+
+During downloading of the QR Code Scanner application you can now select the added JSON Schema and configure the application via the configuration UI.
+
+**Additional information** 
+
+Further information about creating your own JSON Schema UI can be found:
+- https://jsonforms.io/
+- https://jsonforms-editor.netlify.app/
