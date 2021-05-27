@@ -19,7 +19,7 @@ The python-evdev libray can be used in your python script by importing evdev: *i
 
 ### Accessing device tree
 
-To enable the access to the hosts devices, the application needs to run in priviledge mode. The priviledge mode needs to be enable in the docker-compose file by adding the **privileged:** **true** option to the corresponding service.
+To enable the access to the input devices, the application needs to have access the `/dev/input` folder of the host system. The input device folder can be added by using the **devices** keyword in the docker-compose file. The dedicated devices will then be mapped to the docker container and can be used by the application.
 
 >**Excerpt from docker-compose.yml**
 >
@@ -34,6 +34,8 @@ To enable the access to the hosts devices, the application needs to run in privi
 >        volumes:
 >            - './publish/:/publish/'
 >            - './cfg-data/:/cfg-data/'
+>        devices:
+>            - '/dev/input:/dev/input'
 
 ### Check for dedicated input device
 

@@ -6,13 +6,14 @@ services:
         build: ./src
         image: scannerap:1.2.0
         restart: on-failure
-        privileged: true
         mem_limit: 100mb
         networks:
             - proxy-redirect
         volumes:
             - './publish/:/publish/'
             - './cfg-data/:/cfg-data/'
+        devices:
+            - '/dev/input:/dev/input'
 
 networks:
     proxy-redirect:
