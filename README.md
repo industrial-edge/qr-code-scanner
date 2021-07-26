@@ -48,9 +48,9 @@ Scanner type, plc tag, databus topic as well as databus credentials can be confi
 
 ### TIA Project
 
-The used TIA Portal project can be found in the [miscellenous repository](https://github.com/industrial-edge/miscellaneous/tree/main/tank%20application) under the following name and is also used for several further application examples:
+The used TIA Portal project can be found in the [miscellaneous repository](https://github.com/industrial-edge/miscellaneous) in the tank application folder and is also used for several further application examples:
 
-- [tia-tank-application.7z](https://github.com/industrial-edge/miscellaneous/blob/main/tank%20application/tia-tank-application.7z)
+- [Tia Tank Application](https://github.com/industrial-edge/miscellaneous/tree/main/tank%20application)
   
 ### Configuring PLC Connection
 
@@ -65,7 +65,7 @@ You can find the further information about the following steps in the [docs](./d
 
 - [Configure QR Code Scanner](docs/Installation.md#configure-qr-code-scanner)
 - [Build application](docs/Installation.md#build-application)
-- [Upload app to Industrial Edge Managment](docs/Installation.md#upload-scanner-app-to-the-industrial-edge-managment)
+- [Upload app to Industrial Edge Management](docs/Installation.md#upload-scanner-app-to-the-industrial-edge-managment)
 - [Deploying application to Industrial Edge Device](docs/Installation.md#deploying-of-qr-code-scanner-demo)
 
 ## Usage
@@ -74,7 +74,7 @@ Plug your SIMATIC MV320 Bar Code Scanner (or any other USB Scanner) to one of th
 
 Go to the TIA Portal Project, start the HMI Runtime and scan any available QR Code (e.g the following QR Code). A pop up will appear with the content of the scanned code.
 
-You can also open the GBD datablock in the TIA Portal and check the content of the APP_QRCode variable in the app signals structure.
+You can also open the GBD data block in the TIA Portal and check the content of the APP_QRCode variable in the app signals structure.
 
 ![QR_Code_Industrial_Edge](docs/graphics/qr_code_industrial_edge.png)
 
@@ -95,7 +95,7 @@ How to access the USB based QR Code Scanner inside the application as well as fu
   
 ## Contribution
 
-Thanks for your interest in contributing. Anybody is free to report bugs, unclear documenation, and other problems regarding this repository in the Issues section or, even better, is free to propose any changes to this repository using Merge Requests.
+Thanks for your interest in contributing. Anybody is free to report bugs, unclear documentation, and other problems regarding this repository in the Issues section or, even better, is free to propose any changes to this repository using Merge Requests.
 
 ## Licence and Legal Information
 

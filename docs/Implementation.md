@@ -43,7 +43,7 @@ As not all input events should be monitored, but only the events of the QR Code 
 
 The check is done in the **check_for_scanner** function in the **main.py** script. The function lists all devices provided by the evdev libray (list_devices), checks for the scanner name and returns the corresponding event to the main function
 
-**Excerpt from main.py**
+**Excerpt from main.py:**
 
 ```python
      # Check for plugged in Scanner
@@ -81,7 +81,7 @@ Before publishing data to the IE Databus the MQTT Client needs to be initialized
 
 The mqtt connection is handled by the  the `class mqttclient`, which is initialized when creating the class object. All needed parameters are handed over by the class constructor and can be configured using the [config file](../cfg-data/param.json).
 
-**Excerpt from main.py**
+**Excerpt from main.py:**
 
 ```python
     # Initialize mqtt client object with paramter from the config file and starts the connection to the broker 
@@ -93,7 +93,7 @@ The mqtt connection is handled by the  the `class mqttclient`, which is initiali
 
 As soon as the suffix (enter character) of the QR Code is detected by the application the scanned code is published to IE Databus. The QR Code as well as the IE Databus topic are printed to the logs using the **print** and **flush** commands.
 
-**Excerpt from main.py**
+**Excerpt from main.py:**
 
 ```python
      # Check for QRCode suffix
