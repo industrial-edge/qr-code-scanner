@@ -100,7 +100,8 @@ Go to **Applications/ My Projects** and open the QR Code Scanner application. He
 **Add Configuration:**
 
 ![deploy VFC](./graphics/add_config_file.png)
-**Configure** **Configuration**
+
+**Configure Configuration:**
 
 ![deploy VFC](./graphics/configure_config.png)
 
