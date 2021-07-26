@@ -13,7 +13,7 @@
 
 ### Accessing input events
 
-Using an USB QR Code Scanner in Linux the Scanner is mounted to the generic input event interface located in /dev/input/. In this application example the python-evdev library is used to read the input events of the Industrial Edge Device. The evdev interface passes events generated in the kernel directly to userspace through character devices typically located in the mentioned /dev/input/ folder.
+Using an USB QR Code Scanner in Linux the Scanner is mounted to the generic input event interface located in /dev/input/. In this application example the python-evdev library is used to read the input events of the Industrial Edge Device. The evdev interface passes events generated in the kernel directly to user space through character devices typically located in the mentioned /dev/input/ folder.
 
 The python-evdev libray can be used in your python script by importing evdev: *import evdev*
 
@@ -41,7 +41,7 @@ To enable the access to the input devices, the application needs to have access 
 
 As not all input events should be monitored, but only the events of the QR Code Scanner the application checks for a device with a dedicated name. The device name can be configured via the configuration file.
 
-The check is done in the **check_for_scanner** function in the **main.py** script. The function lists all devices provided by the evdev libray (list_devices), checks for the scanner name and returns the corresponding event to the main function
+The check is done in the **check_for_scanner** function in the **main.py** script. The function lists all devices provided by the evdev library (list_devices), checks for the scanner name and returns the corresponding event to the main function
 
 **Excerpt from main.py:**
 
@@ -67,9 +67,9 @@ This library can be import by: **import paho.mqtt.client** **as** **mqtt**
 
 ### Initializing MQTT client
 
-Before publishing data to the IE Databus the MQTT Client needs to be initialized, the connection to the broker established and the loop for accessing the broker started. As the IE Databus is protected by user and password the credentials needs to be set before connection to the broker.
+Before publishing data to the IE Databus the MQTT Client needs to be initialized, the connection to the broker established and the loop for accessing the broker started. As the IE Databus is protected by user and password the credentials needs to be set before connect to the broker.
 
-**Excerpt from main.py**
+**Excerpt from main.py:**
 
 ```python
      # Set username and password, must be created it databus configurator
@@ -122,7 +122,7 @@ The mqtt topic of the S7 Connector for writing to the PLC uses the following for
 ```
 
 The sequence number **seq** is optional and has no further value here.
-The **vals** structure describes the datablock variable of the PLC and consinst the
+The **vals** structure describes the data block variable of the PLC and consist the
 
 - **id**: Variable id, defined in the meta data of the connection.
 - **val**: Value of the variable. In this case the *QR Code*.
