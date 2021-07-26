@@ -33,7 +33,7 @@ The application is designed for checking for the **enter** character as suffix o
 - Use command `docker-compose build` to create the docker image.
 - This docker image can now be used to build you app with the Industrial Edge App Publisher
 - *docker images | grep scannerapp* can be used to check for the images
-- You should get a result similiar to this:
+- You should get a result similar to this:
 
 ![deploy VFC](./graphics/docker_images_scannerapp.png)
 
