@@ -3,13 +3,13 @@
 - [Installation](#installation)
   - [Configure QR Code Scanner](#configure-qr-code-scanner)
   - [Build application](#build-application)
-    - [Cloning image](#cloning-image)
+    - [Download Repository](#download-repository)
     - [Build docker image](#build-docker-image)
   - [Upload Scanner App to the Industrial Edge Management](#upload-scanner-app-to-the-industrial-edge-management)
     - [Connect your Industrial Edge App Publisher](#connect-your-industrial-edge-app-publisher)
     - [Upload Scanner App using the Industrial Edge App Publisher](#upload-scanner-app-using-the-industrial-edge-app-publisher)
   - [Configuring application](#configuring-application)
-  - [Create & Deploy configuration file](#create--deploy-configuration-file)
+  - [Create \& Deploy configuration file](#create--deploy-configuration-file)
     - [Configuration via template file](#configuration-via-template-file)
     - [Configuration via JSON Schema UI](#configuration-via-json-schema-ui)
   
@@ -23,19 +23,29 @@ The application is designed for checking for the **enter** character as suffix o
 
 ## Build application
 
-### Cloning image
+### Download Repository
 
-- Clone or Download the source code to your engineering VM
+Download or clone the repository source code to your workstation.  
+![Github Clone Section](graphics/clonerepo.png)
+
+
+* Trough terminal:
+```bash
+git clone https://github.com/industrial-edge/hello-world.git
+```
+
+* Trough VSCode:  
+<kbd>CTRL</kbd>+<kbd>&uarr; SHIFT</kbd>+<kbd>P</kbd> or <kbd>F1</kbd> to open VSCode's command pallette and type `git clone`:
+
+![VS Code Git Clone command](graphics/git.png)
 
 ### Build docker image
 
-- Open console in the source code folder
-- Use command `docker-compose build` to create the docker image.
-- This docker image can now be used to build you app with the Industrial Edge App Publisher
-- *docker images | grep scannerapp* can be used to check for the images
-- You should get a result similar to this:
-
-![deploy VFC](./graphics/docker_images_scannerapp.png)
+- Navigate into `src` and find the file named `Dockerfile.example`. The `Dockerfile.example` is an example Dockerfile that can be used to build the Docker images of the backend and the frontend. If you choose to use these, rename them both to `Dockerfile` before proceeding
+- Open a console in the root folder (where the `docker-compose` file is)
+- Use the `docker compose build` (replaces the older `docker-compose build`) command to build the docker image of the service which is specified in the docker-compose.yml file.
+- These Docker images can now be used to build your app with the Industrial Edge App Publisher
+- `docker images` can be used to check for the images
 
 ## Upload Scanner App to the Industrial Edge Management
 
