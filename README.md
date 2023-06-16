@@ -35,7 +35,7 @@ Scanner type, plc tag, databus topic as well as databus credentials can be confi
 
 ### Used components
 
-- Industrial Edge App Publisher V1.2.8
+- Industrial Edge App Publisher V1.10.5
 - Docker Engine 18.09.6
 - Docker Compose V2.4
 - Simatic S7 Connector V1.8.10-16
