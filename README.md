@@ -26,7 +26,7 @@ This application examples shows how to connect a QR Code Scanner via USB to the 
 
 ### General task
 
-The application reads the QR Code provided by the scanner and publishes it on the IE Databus to the topic corresponding to the S7 Connector, which sends the data to the PLC. This  topic needs to be created in the IE Databus in advance.
+The application reads the QR Code provided by the scanner and publishes it on the Databus to the topic corresponding to the OPC UA Connector, which sends the data to the PLC. This topic needs to be created in the Databus in advance.
 Scanner type, plc tag, databus topic as well as databus credentials can be configured via an external configuration file.
 
 ![deploy VFC](docs/graphics/qrcode_task.png)
@@ -38,7 +38,7 @@ Scanner type, plc tag, databus topic as well as databus credentials can be confi
 - Industrial Edge App Publisher V1.10.5
 - Docker Engine 18.09.6
 - Docker Compose V2.4
-- Simatic S7 Connector V1.8.10-16
+- OPC UA Connector V1.8.1
 - Common Connector Configurator V1.8.1-4
 - Databus V2.1.0-4
 - Databus Configurator V2.0.0-5
@@ -57,8 +57,8 @@ The used TIA Portal project can be found in the [miscellaneous repository](https
 
 Further information about how to configure the S7 Connection to write data to the PLC can be found in the [docs](docs/PLC_connection.md) section
 
-- Configure IE Databus
-- Configure S7 Connection
+- Configure Databus
+- Configure OPC UA Connection
 
 ## Installation
 

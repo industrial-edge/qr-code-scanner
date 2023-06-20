@@ -15,7 +15,7 @@
   
 ## Configure QR Code Scanner
 
-The application is designed for checking for the **enter** character as suffix of the scanned code. The scanner can be configured to add this suffix after each scanned code by scanning the following QR Code. After detecting the suffix character the scanned code is published to the IE Databus and sent to the PLC using the S7 Connector.
+The application is designed for checking for the **enter** character as suffix of the scanned code. The scanner can be configured to add this suffix after each scanned code by scanning the following QR Code. After detecting the suffix character the scanned code is published to the Databus and sent to the PLC using the OPC UA Connector.
 
 **Scan to configure the enter suffix:**
 
@@ -31,7 +31,7 @@ Download or clone the repository source code to your workstation.
 
 * Trough terminal:
 ```bash
-git clone https://github.com/industrial-edge/hello-world.git
+git clone https://github.com/industrial-edge/qr-code-scanner.git
 ```
 
 * Trough VSCode:  
@@ -79,8 +79,8 @@ You can find the configuration file ["param.json"](../cfg-data/param.json) in cf
         "Mqtt_Broker_Server": "ie-databus",
         "User": "edge",
         "Password": "edge",
-        "Metadata": "ie/m/j/simatic/v1/s7c1/dp",
-        "Topic": "ie/d/j/simatic/v1/s7c1/dp/w/PLC_S7",
+        "Metadata": "ie/m/j/simatic/v1/opcuac1/dp",
+        "Topic": "ie/d/j/simatic/v1/opcuac1/dp/w/PLC_OPC",
         "Variable": "GDB_appSignals_APP_QRCode"
     }
 ```
@@ -90,7 +90,7 @@ You can find the configuration file ["param.json"](../cfg-data/param.json) in cf
 - **User**: User of the  S7 Connector databus topic
 - **Password**: Password of the  S7 Connector databus topic
 - **Metadata**: Topic of the metadata of the used connector
-- **Topic**: The connection name of the S7 Connector connection, which is used to send the scanned code to the PLC. The topic consists of the default S7 Connector topic `ie/d/j/simatic/v1/s7c1/dp/w` and the *connection name* configured in the S7 Connector Configurator (Here `PLC_S7`)
+- **Topic**: The connection name of the S7 Connector connection, which is used to send the scanned code to the PLC. The topic consists of the default S7 Connector topic `ie/d/j/simatic/v1/opcuac1/dp/w` and the *connection name* configured in the S7 Connector Configurator (Here `PLC_OPC`)
 - **Variable**: The name of the variable, which is configured in the S7 Connector
 
 Adjust the configuration file depending on your needs.
