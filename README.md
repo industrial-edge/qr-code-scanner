@@ -84,7 +84,7 @@ You can also open the GBD data block in the TIA Portal and check the content of 
 How to access the USB based QR Code Scanner inside the application as well as further details about the source code can be found in the [implementation section](docs/Implementation.md).
 
 - [Accessing QR Code Scanner](docs/Implementation.md#accessing-qr-code-scanner) inside the application
-- [Publishing QR Code](docs/Implementation.md#accessing-qr-code-scanner) to the IE Databus
+- [Publishing QR Code](docs/Implementation.md#accessing-qr-code-scanner) to the Databus
 
 ## Documentation
  
