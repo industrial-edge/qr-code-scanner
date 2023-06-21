@@ -87,11 +87,11 @@ You can find the configuration file ["param.json"](../cfg-data/param.json) in cf
 
 - **Scannertype**: Name of your scanner, which is used in the Linux device tree
 - **Mqtt_Broker_Server**: Service name of the Databus
-- **User**: User of the  S7 Connector databus topic
-- **Password**: Password of the  S7 Connector databus topic
+- **User**: User of the  OPC UA Connector databus topic
+- **Password**: Password of the  OPC UA Connector databus topic
 - **Metadata**: Topic of the metadata of the used connector
-- **Topic**: The connection name of the S7 Connector connection, which is used to send the scanned code to the PLC. The topic consists of the default S7 Connector topic `ie/d/j/simatic/v1/opcuac1/dp/w` and the *connection name* configured in the S7 Connector Configurator (Here `PLC_OPC`)
-- **Variable**: The name of the variable, which is configured in the S7 Connector
+- **Topic**: The connection name of the OPC UA Connector connection, which is used to send the scanned code to the PLC. The topic consists of the default OPC UA Connector topic `ie/d/j/simatic/v1/opcuac1/dp/w` and the *connection name* configured in the OPC UA Connector Configurator (Here `PLC_OPC`)
+- **Variable**: The name of the variable, which is configured in the OPC UA Connector
 
 Adjust the configuration file depending on your needs.
 

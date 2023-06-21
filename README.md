@@ -55,7 +55,7 @@ The used TIA Portal project can be found in the [miscellaneous repository](https
   
 ### Configuring PLC Connection
 
-Further information about how to configure the S7 Connection to write data to the PLC can be found in the [docs](docs/PLC_connection.md) section
+Further information about how to configure the OPC UA Connection to write data to the PLC can be found in the [docs](docs/PLC_connection.md) section
 
 - Configure Databus
 - Configure OPC UA Connection
