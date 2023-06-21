@@ -86,7 +86,7 @@ You can find the configuration file ["param.json"](../cfg-data/param.json) in cf
 ```
 
 - **Scannertype**: Name of your scanner, which is used in the Linux device tree
-- **Mqtt_Broker_Server**: Service name of the IE Databus
+- **Mqtt_Broker_Server**: Service name of the Databus
 - **User**: User of the  S7 Connector databus topic
 - **Password**: Password of the  S7 Connector databus topic
 - **Metadata**: Topic of the metadata of the used connector
