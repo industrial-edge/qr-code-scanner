@@ -3,19 +3,19 @@
 - [Installation](#installation)
   - [Configure QR Code Scanner](#configure-qr-code-scanner)
   - [Build application](#build-application)
-    - [Cloning image](#cloning-image)
+    - [Download Repository](#download-repository)
     - [Build docker image](#build-docker-image)
   - [Upload Scanner App to the Industrial Edge Management](#upload-scanner-app-to-the-industrial-edge-management)
     - [Connect your Industrial Edge App Publisher](#connect-your-industrial-edge-app-publisher)
     - [Upload Scanner App using the Industrial Edge App Publisher](#upload-scanner-app-using-the-industrial-edge-app-publisher)
   - [Configuring application](#configuring-application)
-  - [Create & Deploy configuration file](#create--deploy-configuration-file)
+  - [Create \& Deploy configuration file](#create--deploy-configuration-file)
     - [Configuration via template file](#configuration-via-template-file)
     - [Configuration via JSON Schema UI](#configuration-via-json-schema-ui)
   
 ## Configure QR Code Scanner
 
-The application is designed for checking for the **enter** character as suffix of the scanned code. The scanner can be configured to add this suffix after each scanned code by scanning the following QR Code. After detecting the suffix character the scanned code is published to the IE Databus and sent to the PLC using the S7 Connector.
+The application is designed for checking for the **enter** character as suffix of the scanned code. The scanner can be configured to add this suffix after each scanned code by scanning the following QR Code. After detecting the suffix character the scanned code is published to the Databus and sent to the PLC using the OPC UA Connector.
 
 **Scan to configure the enter suffix:**
 
@@ -23,19 +23,29 @@ The application is designed for checking for the **enter** character as suffix o
 
 ## Build application
 
-### Cloning image
+### Download Repository
 
-- Clone or Download the source code to your engineering VM
+Download or clone the repository source code to your workstation.  
+![Github Clone Section](graphics/clonerepo.png)
+
+
+* Trough terminal:
+```bash
+git clone https://github.com/industrial-edge/qr-code-scanner.git
+```
+
+* Trough VSCode:  
+<kbd>CTRL</kbd>+<kbd>&uarr; SHIFT</kbd>+<kbd>P</kbd> or <kbd>F1</kbd> to open VSCode's command pallette and type `git clone`:
+
+![VS Code Git Clone command](graphics/git.png)
 
 ### Build docker image
 
-- Open console in the source code folder
-- Use command `docker-compose build` to create the docker image.
-- This docker image can now be used to build you app with the Industrial Edge App Publisher
-- *docker images | grep scannerapp* can be used to check for the images
-- You should get a result similar to this:
-
-![deploy VFC](./graphics/docker_images_scannerapp.png)
+- Navigate into `src` and find the file named `Dockerfile.example`. The `Dockerfile.example` is an example Dockerfile that can be used to build the docker image(s) of the service(s) that runs in this application example. If you choose to use these, rename them to `Dockerfile` before proceeding
+- Open a console in the root folder (where the `docker-compose` file is)
+- Use the `docker compose build` (replaces the older `docker-compose build`) command to build the docker image of the service which is specified in the docker-compose.yml file.
+- These Docker images can now be used to build your app with the Industrial Edge App Publisher
+- `docker images` can be used to check for the images
 
 ## Upload Scanner App to the Industrial Edge Management
 
@@ -69,19 +79,19 @@ You can find the configuration file ["param.json"](../cfg-data/param.json) in cf
         "Mqtt_Broker_Server": "ie-databus",
         "User": "edge",
         "Password": "edge",
-        "Metadata": "ie/m/j/simatic/v1/s7c1/dp",
-        "Topic": "ie/d/j/simatic/v1/s7c1/dp/w/PLC_S7",
+        "Metadata": "ie/m/j/simatic/v1/opcuac1/dp",
+        "Topic": "ie/d/j/simatic/v1/opcuac1/dp/w/PLC_OPC",
         "Variable": "GDB_appSignals_APP_QRCode"
     }
 ```
 
 - **Scannertype**: Name of your scanner, which is used in the Linux device tree
-- **Mqtt_Broker_Server**: Service name of the IE Databus
-- **User**: User of the  S7 Connector databus topic
-- **Password**: Password of the  S7 Connector databus topic
+- **Mqtt_Broker_Server**: Service name of the Databus
+- **User**: User of the  OPC UA Connector databus topic
+- **Password**: Password of the  OPC UA Connector databus topic
 - **Metadata**: Topic of the metadata of the used connector
-- **Topic**: The connection name of the S7 Connector connection, which is used to send the scanned code to the PLC. The topic consists of the default S7 Connector topic `ie/d/j/simatic/v1/s7c1/dp/w` and the *connection name* configured in the S7 Connector Configurator (Here `PLC_S7`)
-- **Variable**: The name of the variable, which is configured in the S7 Connector
+- **Topic**: The connection name of the OPC UA Connector connection, which is used to send the scanned code to the PLC. The topic consists of the default OPC UA Connector topic `ie/d/j/simatic/v1/opcuac1/dp/w` and the *connection name* configured in the OPC UA Connector Configurator (Here `PLC_OPC`)
+- **Variable**: The name of the variable, which is configured in the OPC UA Connector
 
 Adjust the configuration file depending on your needs.
 
