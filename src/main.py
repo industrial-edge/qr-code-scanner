@@ -1,8 +1,8 @@
 # QR Code Scanner App, which sends scanned QR Code to PLC
-# Copyright 2020 Siemens AG
+# Copyright 2023 Siemens AG
 # This file is subject to the terms and conditions of the MIT License.  
 # See LICENSE file in the top-level directory.
-# Date: 05.05.2021
+# Date: 22.12.2023
 
 import paho.mqtt.client as mqtt
 from createDict import getDict
@@ -56,7 +56,7 @@ class mqttclient:
         self.IDDict = getDict(msg, self.plc_connection) 
         
         print("INFO | New message received: " + msg)
-        print("INFO | Extracted dict: " + self.IDDict)
+        print("INFO | Extracted dict: " + str(self.IDDict))
         sys.stdout.flush()
 
     def on_connect(self, client, userdata, flags, rc):
