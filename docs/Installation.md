@@ -2,15 +2,15 @@
 
 - [Installation](#installation)
   - [Configure QR Code Scanner](#configure-qr-code-scanner)
-  - [Build application](#build-application)
+  - [Build Application](#build-application)
     - [Download Repository](#download-repository)
     - [Build docker image](#build-docker-image)
   - [Upload Scanner App to the Industrial Edge Management](#upload-scanner-app-to-the-industrial-edge-management)
     - [Connect your Industrial Edge App Publisher](#connect-your-industrial-edge-app-publisher)
     - [Upload Scanner App using the Industrial Edge App Publisher](#upload-scanner-app-using-the-industrial-edge-app-publisher)
-  - [Configuring application](#configuring-application)
-  - [Create \& Deploy configuration file](#create--deploy-configuration-file)
-    - [Configuration via template file](#configuration-via-template-file)
+  - [Configuring Application](#configuring-application)
+  - [Create & Deploy Configuration File](#create--deploy-configuration-file)
+    - [Configuration via Template File](#configuration-via-template-file)
     - [Configuration via JSON Schema UI](#configuration-via-json-schema-ui)
   
 ## Configure QR Code Scanner
@@ -19,11 +19,11 @@ The Siemens MV 320 QR code scanner can be configured by scanning specific QR cod
 
 After detecting the suffix character the scanned code is published to the Databus and sent to the PLC using the OPC UA Connector.
 
-**Scan to configure the enter suffix:**
+**Scan to configure the Enter suffix:**
 
 ![deploy VFC](graphics/suffix.png)
 
-## Build application
+## Build Application
 
 ### Download Repository
 
@@ -41,7 +41,7 @@ git clone https://github.com/industrial-edge/qr-code-scanner.git
 
 ![VS Code Git Clone command](graphics/git.png)
 
-### Build docker image
+### Build Docker Image
 
 - Navigate into `src` and find the file named `Dockerfile.example`. The `Dockerfile.example` is an example Dockerfile that can be used to build the docker image(s) of the service(s) that runs in this application example. If you choose to use this example file, rename it to `Dockerfile` before proceeding
 - Open a console in the root folder (where the `docker-compose` file is)
@@ -71,7 +71,7 @@ For more detailed information please see the section for [uploading apps to the 
 - "Start Upload" to transfer the app to Industrial Edge Management
 - Further information about using the Industrial Edge App Publisher can be found in the [IE Hub](https://iehub.eu1.edge.siemens.cloud/documents/appPublisher/en/start.html)
 
-## Configuring application
+## Configuring Application
 
 You can find the configuration file [param.json](../cfg-data/param.json) in cfg-data folder. This configuration file can be used to adjust several parameters of this application. You can see the structure of the file in the following example configuration:
 
@@ -99,14 +99,14 @@ You can find the configuration file [param.json](../cfg-data/param.json) in cfg-
 
 Adjust the configuration file depending on your needs.
 
-## Create & Deploy configuration file
+## Create & Deploy Configuration File
 
 The system offers several possibilities configuring your application. The following steps describes two available options:
 
 - Configuring via [Template File](#configuration-via-template-file)
 - Configuring via [JSON Schema UI](#configuration-via-json-schema-ui)
 
-### Configuration via template file
+### Configuration via Template File
 
 Once you have successfully uploaded the QR code scanner application to your IEM you need to add the [configuration file](../cfg-data/param.json) to your application. You can either choose between version and non versioned configuration files. The non version configuration file will be described in the next steps.
 Go to "App Projects", select your project and open your QR code scanner application. Here you can create a new configuration file.
@@ -122,7 +122,7 @@ Click on "Configurations" and in the upcoming window "Add Configuration".
 
 Make sure to use this [configuration file](../cfg-data/param.json).
 
-**Deploy application with configuration file:**
+**Deploy Application with Configuration File:**
 
 During the deploying process of the application you need to select the configuration file you just created.
 
@@ -131,7 +131,7 @@ During the deploying process of the application you need to select the configura
 ### Configuration via JSON Schema UI
 Using the JSON schema option the application can be configured via a graphical UI during the download of the application to the edge device or when updating the configuration. All needed parameters can be configured here. You need to use this [configuration file](../cfg-data/json_schema/param.json) for this method.
 
-**Adjust app settings:**
+**Adjust App Settings:**
 
 Before uploading the JSON schema you need to enable an external configurator first:
 
@@ -145,7 +145,7 @@ Go back to the overview of the app, click on "Configurations" and in the upcomin
 
 Make sure to use the correct [configuration file](../cfg-data/json_schema/param.json).
 
-**Configure application:** 
+**Configure Application:** 
 
 As soon as you deploy the application (or if updating the configuration) you can now adjust the configuration:
 
@@ -153,7 +153,7 @@ As soon as you deploy the application (or if updating the configuration) you can
 
 Before clicking Next make sure to have checked the checkmark at the top left hand corner.
 
-**Additional information:**
+**Additional Information:**
 
 Further information about creating your own JSON Schema UI can be found:
 

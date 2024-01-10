@@ -5,9 +5,9 @@ Connecting an USB based QR code scanner to an Industrial Edge Device.
 - [Connecting USB QR Code Scanner](#connecting-usb-qr-code-scanner)
   - [Description](#description)
     - [Overview](#overview)
-    - [General task](#general-task)
+    - [General Task](#general-task)
   - [Requirements](#requirements)
-    - [Used components](#used-components)
+    - [Used Components](#used-components)
     - [TIA Project](#tia-project)
     - [Configuring PLC Connection](#configuring-plc-connection)
   - [Installation](#installation)
@@ -24,7 +24,7 @@ Connecting an USB based QR code scanner to an Industrial Edge Device.
 
 This application examples shows how to connect a QR code scanner via USB to the Industrial Edge Device. The scanned QR code will be sent to a PLC and displayed in an HMI Panel.
 
-### General task
+### General Task
 
 The application reads the QR code provided by the scanner and publishes it on the Databus to the topic corresponding to the OPC UA Connector, which sends the data to the PLC. This topic needs to be created in the Databus in advance.
 The scanner type, PLC tag, Databus topic as well as Databus credentials can be configured via an external configuration file.
@@ -33,7 +33,7 @@ The scanner type, PLC tag, Databus topic as well as Databus credentials can be c
 
 ## Requirements
 
-### Used components
+### Used Components
 
 - Industrial Edge App Publisher V1.12.7
 - Docker Engine 24.0.6
@@ -67,8 +67,9 @@ You can find further information about the following steps in the [docs](./docs/
 
 - [Configure QR Code Scanner](docs/Installation.md#configure-qr-code-scanner)
 - [Build application](docs/Installation.md#build-application)
-- [Upload scanner app to the Industrial Edge Management](docs/Installation.md#upload-scanner-app-to-the-industrial-edge-managment)
-- [Deploying of QR code scanner demo](docs/Installation.md#deploying-of-qr-code-scanner-demo)
+- [Upload scanner app to the Industrial Edge Management](docs/Installation.md#upload-scanner-app-to-the-industrial-edge-management)
+- [Configuring Application](docs/Installation.md#configuring-application)
+- [Create & Deploy of QR code scanner demo](docs/Installation.md#create--deploy-configuration-file)
 
 ## Usage
 
@@ -81,7 +82,7 @@ You can also open the GBD data block in the TIA Portal and check the content of 
 ![QR_Code_Industrial_Edge](docs/graphics/qr_code_industrial_edge.png)
 
 ## Implementation
-The access to the USB based QR code scanner inside the application as well as further details about the source code can be found in the [implementation section](docs/Implementation.md).
+The access to the USB based QR code scanner inside the application as well as further details about the source code can be found in the [implementation](docs/Implementation.md) section.
 
 - [Accessing QR Code Scanner](docs/Implementation.md#accessing-qr-code-scanner) inside the application
 - [Publishing QR Code](docs/Implementation.md#publishing-code-to-databus) to the Databus
