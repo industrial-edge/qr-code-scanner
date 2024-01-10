@@ -120,6 +120,8 @@ Click on "Configurations" and in the upcoming window "Add Configuration".
 
 ![deploy VFC](./graphics/configure_config.png)
 
+Make sure to use this [configuration file](../cfg-data/param.json).
+
 **Deploy application with configuration file:**
 
 During the deploying process of the application you need to select the configuration file you just created.
@@ -127,11 +129,11 @@ During the deploying process of the application you need to select the configura
 ![deploy VFC](./graphics/deploy_config.png)
 
 ### Configuration via JSON Schema UI
-Using the JSON schema option the application can be configured via a graphical UI during the download of the application to the edge device or when updating the configuration. All needed parameters can be configured here. You need to add this [configuration file](../cfg-data/json_schema/param.json) for this method.
+Using the JSON schema option the application can be configured via a graphical UI during the download of the application to the edge device or when updating the configuration. All needed parameters can be configured here. You need to use this [configuration file](../cfg-data/json_schema/param.json) for this method.
 
 **Adjust app settings:**
 
-Before uploading the JSON schema you need to enable the external configurator first:
+Before uploading the JSON schema you need to enable an external configurator first:
 
 ![schema redirect](./graphics/json_schema_configuration_prerequisite.png)
 
@@ -140,6 +142,8 @@ Before uploading the JSON schema you need to enable the external configurator fi
 Go back to the overview of the app, click on "Configurations" and in the upcoming window "Add Configuration".
 
 ![json_configuration](./graphics/json_schema_configuration.png)
+
+Make sure to use the correct [configuration file](../cfg-data/json_schema/param.json).
 
 **Configure application:** 
 
