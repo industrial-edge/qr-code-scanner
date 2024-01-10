@@ -15,7 +15,9 @@
   
 ## Configure QR Code Scanner
 
-The Siemens MV 320 QR Code Scanner can be configured by scanning specific QR Codes. This application is designed for checking for the **enter** character as suffix of the scanned code. The scanner can be configured to add this suffix after each scanned code by scanning the following QR Code. After detecting the suffix character the scanned code is published to the Databus and sent to the PLC using the OPC UA Connector.
+The Siemens MV 320 QR code scanner can be configured by scanning specific QR codes. This application is designed for checking for the **enter** character as suffix of the scanned code. To configure the scanner to add this suffix after each scanned code scan the following QR code. 
+
+After detecting the suffix character the scanned code is published to the Databus and sent to the PLC using the OPC UA Connector.
 
 **Scan to configure the enter suffix:**
 
@@ -49,13 +51,13 @@ git clone https://github.com/industrial-edge/qr-code-scanner.git
 
 ## Upload Scanner App to the Industrial Edge Management
 
-Please find below a short description how to publish your application in your IEM.
+Please find below a short description how to publish your application to your IEM.
 
 For more detailed information please see the section for [uploading apps to the IEM](https://github.com/industrial-edge/upload-app-to-iem).
 
 ### Connect your Industrial Edge App Publisher
 
-- Connect your Industrial Edge App Publisher to your docker engine
+- Connect your Industrial Edge App Publisher to your Docker engine
 - Connect your Industrial Edge App Publisher to your Industrial Edge Management System
 
 ### Upload Scanner App using the Industrial Edge App Publisher
@@ -64,9 +66,9 @@ For more detailed information please see the section for [uploading apps to the 
 - Create a new project with "Create Project" in the top right corner or use an existing project
 - Create an application
 - Go back to the Industrial Edge Publisher, refresh the app projects, select the application and add a new app version
-- Import the [docker-compose](../docker-compose.yml) file using the **Import YAML** button
+- Import the [docker-compose](../docker-compose.yml) file using the "Import YAML" button
 - The warning `Build (services >> scanner-service) is not supported` can be ignored
-- **Start Upload** to transfer the app to Industrial Edge Management
+- "Start Upload" to transfer the app to Industrial Edge Management
 - Further information about using the Industrial Edge App Publisher can be found in the [IE Hub](https://iehub.eu1.edge.siemens.cloud/documents/appPublisher/en/start.html)
 
 ## Configuring application
@@ -106,11 +108,12 @@ The system offers several possibilities configuring your application. The follow
 
 ### Configuration via template file
 
-Once you have successfully uploaded the QR Code Scanner application to your IEM you need to add the [configuration file](../cfg-data/param.json) to your application. You can either choose between version and non versioned configuration files. The non version configuration file will be described in the next steps.
-Go to **App Projects**, select your project and open your QR Code Scanner application. Here you can create a new configuration file.
+Once you have successfully uploaded the QR code scanner application to your IEM you need to add the [configuration file](../cfg-data/param.json) to your application. You can either choose between version and non versioned configuration files. The non version configuration file will be described in the next steps.
+Go to "App Projects", select your project and open your QR code scanner application. Here you can create a new configuration file.
 
 **Add Configuration:**
-Click on "Configurations" and in the upcoming window "Add Configuration" 
+
+Click on "Configurations" and in the upcoming window "Add Configuration".
 ![deploy VFC](./graphics/add_config_file.png)
 
 **Configure Configuration:**
@@ -119,25 +122,28 @@ Click on "Configurations" and in the upcoming window "Add Configuration"
 
 **Deploy application with configuration file:**
 
-During the deploying process of the application you need to select the configuration file, if needed you can adapt the configuration file before deploying.
-
-**Deploy Application:**
+During the deploying process of the application you need to select the configuration file you just created.
 
 ![deploy VFC](./graphics/deploy_config.png)
 
 ### Configuration via JSON Schema UI
-Using the JSON Schema option the application can be configured via a graphical UI during download of the application to the edge device or when updating the configuration. All needed parameters can be configured in the UI.
+Using the JSON schema option the application can be configured via a graphical UI during the download of the application to the edge device or when updating the configuration. All needed parameters can be configured here.
 
-**Adjust app settings:** 
+**Adjust app settings:**
+
+Before uploading the JSON schema you need to enable the external configurator first:
 
 ![schema redirect](./graphics/json_schema_configuration_prerequisite.png)
 
 **Add JSON Schema:**
-Before [uploading](#upload-scanner-app-to-the-industrial-edge-managment) the application with the Industrial Edge Publisher you can add the JSON Schema via the **"+Configurations"** button. Add a new configuration (in the IE Publisher), select the JSON Schema option and upload the [JSON Schema file](../cfg-data/json_schema/).
+
+Go back to the overview of the app, click on "Configurations" and in the upcoming window "Add Configuration".
 
 ![json_configuration](./graphics/json_schema_configuration.png)
 
-**Configure application:** During the installation (or if updating the configuration) you can now adjust the configuration:
+**Configure application:** 
+
+As soon as you deploy the application (or if updating the configuration) you can now adjust the configuration:
 
 ![schema](./graphics/json_schema_ui.png)
 

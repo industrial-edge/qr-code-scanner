@@ -1,6 +1,6 @@
 # Connecting USB QR Code Scanner
 
-Connecting an USB based QR Code Scanner to an Industrial Edge Device.
+Connecting an USB based QR code scanner to an Industrial Edge Device.
 
 - [Connecting USB QR Code Scanner](#connecting-usb-qr-code-scanner)
   - [Description](#description)
@@ -22,12 +22,12 @@ Connecting an USB based QR Code Scanner to an Industrial Edge Device.
 
 ### Overview
 
-This application examples shows how to connect a QR Code Scanner via USB to the Industrial Edge Device. The scanned QR Code will be sent to a PLC and displayed in an HMI Panel.
+This application examples shows how to connect a QR code scanner via USB to the Industrial Edge Device. The scanned QR code will be sent to a PLC and displayed in an HMI Panel.
 
 ### General task
 
-The application reads the QR Code provided by the scanner and publishes it on the Databus to the topic corresponding to the OPC UA Connector, which sends the data to the PLC. This topic needs to be created in the Databus in advance.
-Scanner type, plc tag, databus topic as well as databus credentials can be configured via an external configuration file.
+The application reads the QR code provided by the scanner and publishes it on the Databus to the topic corresponding to the OPC UA Connector, which sends the data to the PLC. This topic needs to be created in the Databus in advance.
+The scanner type, PLC tag, Databus topic as well as Databus credentials can be configured via an external configuration file.
 
 ![deploy VFC](docs/graphics/qrcode_task.png)
 
@@ -56,10 +56,10 @@ The used TIA Portal project can be found in the [miscellaneous repository](https
   
 ### Configuring PLC Connection
 
-Further information about how to configure the OPC UA Connection to write data to the PLC can be found in the [docs](docs/PLC_connection.md) section
+Further information about how to configure the OPC UA Connector to write data to the PLC can be found in the [docs](docs/PLC_connection.md) section.
 
 - [Configure Databus](docs/PLC_connection.md#configuring-databus)
-- [Configure OPC UA Connection](docs/PLC_connection.md#configuring-opc-ua-connector)
+- [Configure OPC UA Connector](docs/PLC_connection.md#configuring-opc-ua-connector)
 
 ## Installation
 
@@ -67,24 +67,24 @@ You can find further information about the following steps in the [docs](./docs/
 
 - [Configure QR Code Scanner](docs/Installation.md#configure-qr-code-scanner)
 - [Build application](docs/Installation.md#build-application)
-- [Upload app to Industrial Edge Management](docs/Installation.md#upload-scanner-app-to-the-industrial-edge-managment)
-- [Deploying application to Industrial Edge Device](docs/Installation.md#deploying-of-qr-code-scanner-demo)
+- [Upload scanner app to the Industrial Edge Management](docs/Installation.md#upload-scanner-app-to-the-industrial-edge-managment)
+- [Deploying of QR code scanner demo](docs/Installation.md#deploying-of-qr-code-scanner-demo)
 
 ## Usage
 
-Plug your SIMATIC MV320 Bar Code Scanner (or any other USB Scanner) to one of the USB Ports of your Industrial Edge Device.
+Plug your SIMATIC MV320 QR code scanner (or any other USB Scanner) to one of the USB ports of your Industrial Edge Device.
 
-Go to the TIA Portal Project, start the HMI Runtime and scan any available QR Code (e.g the following QR Code). A pop up will appear with the content of the scanned code.
+Go to the TIA Portal Project, start the HMI Runtime and scan any available QR code (e.g., the following QR code). A pop up will appear with the content of the scanned code.
 
 You can also open the GBD data block in the TIA Portal and check the content of the APP_QRCode variable in the appSignals structure.
 
 ![QR_Code_Industrial_Edge](docs/graphics/qr_code_industrial_edge.png)
 
 ## Implementation
-The Access to the USB based QR Code Scanner inside the application as well as further details about the source code can be found in the [implementation section](docs/Implementation.md).
+The access to the USB based QR code scanner inside the application as well as further details about the source code can be found in the [implementation section](docs/Implementation.md).
 
 - [Accessing QR Code Scanner](docs/Implementation.md#accessing-qr-code-scanner) inside the application
-- [Publishing QR Code](docs/Implementation.md#accessing-qr-code-scanner) to the Databus
+- [Publishing QR Code](docs/Implementation.md#publishing-code-to-databus) to the Databus
 
 ## Documentation
  
