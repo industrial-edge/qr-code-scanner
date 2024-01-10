@@ -73,7 +73,7 @@ For more detailed information please see the section for [uploading apps to the 
 
 ## Configuring application
 
-You can find the configuration file ["param.json"](../cfg-data/param.json) in cfg-data folder. This configuration file can be used to adjust several parameters of this application. You can see the structure of the file in the following example configuration:
+You can find the configuration file [param.json](../cfg-data/param.json) in cfg-data folder. This configuration file can be used to adjust several parameters of this application. You can see the structure of the file in the following example configuration:
 
 **param.json:**
 
@@ -127,7 +127,7 @@ During the deploying process of the application you need to select the configura
 ![deploy VFC](./graphics/deploy_config.png)
 
 ### Configuration via JSON Schema UI
-Using the JSON schema option the application can be configured via a graphical UI during the download of the application to the edge device or when updating the configuration. All needed parameters can be configured here.
+Using the JSON schema option the application can be configured via a graphical UI during the download of the application to the edge device or when updating the configuration. All needed parameters can be configured here. You need to add this [configuration file](../cfg-data/json_schema/param.json) for this method.
 
 **Adjust app settings:**
 
