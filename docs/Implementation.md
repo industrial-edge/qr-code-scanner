@@ -13,7 +13,7 @@
 
 ### Accessing input events
 
-Using an USB QR Code Scanner in Linux the Scanner is mounted to the generic input event interface located in /dev/input/. In this application example the python-evdev library is used to read the input events of the Industrial Edge Device. The evdev interface passes events generated in the kernel directly to user space through character devices typically located in the mentioned /dev/input/ folder.
+When using an USB QR Code Scanner in Linux the Scanner is mounted to the generic input event interface located in /dev/input/. In this application example the python-evdev library is used to read the input events of the Industrial Edge Device. The evdev interface passes events generated in the kernel directly to user space through character devices typically located in the mentioned /dev/input/ folder.
 
 The python-evdev libray can be used in your python script by importing evdev: *import evdev*
 
@@ -27,7 +27,6 @@ To enable the access to the input devices, the application needs to have access 
 >        build: ./src
 >        image: scannerap:1.2.0
 >        restart: on-failure
->        privileged: true
 >        mem_limit: 100mb
 >        networks:
 >            - proxy-redirect
@@ -61,7 +60,7 @@ The check is done in the **check_for_scanner** function in the **main.py** scrip
 
 ## Publishing Code to Databus
 
-After the QR Code is scanned and read by the application it is published to the S7 Connector topic of the IE Databus. As the IE Databus is based on a MQTT Broker the python library **paho-mqtt** is used to publish values on the IE Databus.
+After the QR Code is scanned and read by the application it is published to the OPCUA Connector topic of the IE Databus. As the IE Databus is based on a MQTT Broker the python library **paho-mqtt** is used to publish values on the IE Databus.
 
 This library can be import by: **import paho.mqtt.client** **as** **mqtt**
 
@@ -98,7 +97,7 @@ As soon as the suffix (enter character) of the QR Code is detected by the applic
 ```python
      # Check for QRCode suffix
      if event.code == CONST_ENTER:
-        # Copy barcode to S7 Connector topic
+        # Copy barcode to OPCUA Connector topic
         PLC_QR_Code['vals'][0]['id'] = (my_mqtt_client.IDDict.get(params['Variable']))
         PLC_QR_Code['vals'][0]['val'] = barcode
         # Publish MQTT Topic and flush to logs
@@ -110,7 +109,7 @@ As soon as the suffix (enter character) of the QR Code is detected by the applic
         barcode = ""
 ```
 
-The mqtt topic of the S7 Connector for writing to the PLC uses the following format:
+The mqtt topic of the OPCUA Connector for writing to the PLC uses the following format:
 
 ```json 
 {
@@ -122,7 +121,7 @@ The mqtt topic of the S7 Connector for writing to the PLC uses the following for
 ```
 
 The sequence number **seq** is optional and has no further value here.
-The **vals** structure describes the data block variable of the PLC and consist the
+The **vals** structure describes the data block variable of the PLC and consists two entries:
 
 - **id**: Variable id, defined in the meta data of the connection.
 - **val**: Value of the variable. In this case the *QR Code*.

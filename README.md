@@ -35,16 +35,17 @@ Scanner type, plc tag, databus topic as well as databus credentials can be confi
 
 ### Used components
 
-- Industrial Edge App Publisher V1.10.5
-- Docker Engine 18.09.6
-- Docker Compose V2.4
-- OPC UA Connector V1.8.1
-- Common Connector Configurator V1.8.1-4
-- Databus V2.1.0-4
+- Industrial Edge App Publisher V1.12.7
+- Docker Engine 24.0.6
+- Docker Compose V2.21.0
+- Common Connector Configurator V1.9.1-1
+- Databus V2.3.1-2
 - Databus Configurator V2.0.0-5
-- Industrial Edge Device V1.10.0-9
+- Industrial Edge Device V1.12.0-10
+- IE App Configuration Service V1.3.2
+- OPC UA Connector V2.1.0-0
 - QR Code Scanner: SIMATIC MV320
-- TIA Portal V16
+- TIA Portal V18 (V16 minimum)
 - PLC: CPU 1518 FW 2.8.3
 
 ### TIA Project
@@ -57,12 +58,12 @@ The used TIA Portal project can be found in the [miscellaneous repository](https
 
 Further information about how to configure the OPC UA Connection to write data to the PLC can be found in the [docs](docs/PLC_connection.md) section
 
-- Configure Databus
-- Configure OPC UA Connection
+- [Configure Databus](docs/PLC_connection.md#configuring-databus)
+- [Configure OPC UA Connection](docs/PLC_connection.md#configuring-opc-ua-connector)
 
 ## Installation
 
-You can find the further information about the following steps in the [docs](./docs/Installation.md)
+You can find further information about the following steps in the [docs](./docs/Installation.md)
 
 - [Configure QR Code Scanner](docs/Installation.md#configure-qr-code-scanner)
 - [Build application](docs/Installation.md#build-application)
@@ -75,13 +76,12 @@ Plug your SIMATIC MV320 Bar Code Scanner (or any other USB Scanner) to one of th
 
 Go to the TIA Portal Project, start the HMI Runtime and scan any available QR Code (e.g the following QR Code). A pop up will appear with the content of the scanned code.
 
-You can also open the GBD data block in the TIA Portal and check the content of the APP_QRCode variable in the app signals structure.
+You can also open the GBD data block in the TIA Portal and check the content of the APP_QRCode variable in the appSignals structure.
 
 ![QR_Code_Industrial_Edge](docs/graphics/qr_code_industrial_edge.png)
 
 ## Implementation
-
-How to access the USB based QR Code Scanner inside the application as well as further details about the source code can be found in the [implementation section](docs/Implementation.md).
+The Access to the USB based QR Code Scanner inside the application as well as further details about the source code can be found in the [implementation section](docs/Implementation.md).
 
 - [Accessing QR Code Scanner](docs/Implementation.md#accessing-qr-code-scanner) inside the application
 - [Publishing QR Code](docs/Implementation.md#accessing-qr-code-scanner) to the Databus

@@ -26,7 +26,7 @@ class mqttclient:
 
     """
     mqttclient access the IE-Databus and 
-    returns the Metadata from the dedicated connection of the S7 Connector
+    returns the Metadata from the dedicated connection of the OPCUA Connector
     
     """
 
@@ -36,7 +36,7 @@ class mqttclient:
 
         # Initialize dictionary for Metadata
         self.IDDict = {}
-        # IE Databus and S7 Connector information
+        # IE Databus and OPCUA Connector information
         self.broker = broker
         self.mqtt_user = user
         self.mqtt_password = password
@@ -148,7 +148,7 @@ for event in qrdevice.read_loop():
         
         # Check for QRCode suffix
         if event.code == CONST_ENTER:          
-            # Copy barcode to S7 Connector topic
+            # Copy barcode to OPCUA topic
             PLC_QR_Code['vals'][0]['id'] = (my_mqtt_client.IDDict.get(params['Variable']))
             PLC_QR_Code['vals'][0]['val'] = barcode
             # Publish MQTT Topic and flush to logs
