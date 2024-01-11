@@ -2,26 +2,28 @@
 
 - [Installation](#installation)
   - [Configure QR Code Scanner](#configure-qr-code-scanner)
-  - [Build application](#build-application)
+  - [Build Application](#build-application)
     - [Download Repository](#download-repository)
     - [Build docker image](#build-docker-image)
   - [Upload Scanner App to the Industrial Edge Management](#upload-scanner-app-to-the-industrial-edge-management)
     - [Connect your Industrial Edge App Publisher](#connect-your-industrial-edge-app-publisher)
     - [Upload Scanner App using the Industrial Edge App Publisher](#upload-scanner-app-using-the-industrial-edge-app-publisher)
-  - [Configuring application](#configuring-application)
-  - [Create \& Deploy configuration file](#create--deploy-configuration-file)
-    - [Configuration via template file](#configuration-via-template-file)
+  - [Configuring Application](#configuring-application)
+  - [Create & Deploy Configuration File](#create--deploy-configuration-file)
+    - [Configuration via Template File](#configuration-via-template-file)
     - [Configuration via JSON Schema UI](#configuration-via-json-schema-ui)
   
 ## Configure QR Code Scanner
 
-The application is designed for checking for the **enter** character as suffix of the scanned code. The scanner can be configured to add this suffix after each scanned code by scanning the following QR Code. After detecting the suffix character the scanned code is published to the Databus and sent to the PLC using the OPC UA Connector.
+The Siemens MV 320 QR code scanner can be configured by scanning specific QR codes. This application is designed for checking for the **enter** character as suffix of the scanned code. To configure the scanner to add this suffix after each scanned code scan the following QR code. 
 
-**Scan to configure the enter suffix:**
+After detecting the suffix character the scanned code is published to the Databus and sent to the PLC using the OPC UA Connector.
+
+**Scan to configure the Enter suffix:**
 
 ![deploy VFC](graphics/suffix.png)
 
-## Build application
+## Build Application
 
 ### Download Repository
 
@@ -39,9 +41,9 @@ git clone https://github.com/industrial-edge/qr-code-scanner.git
 
 ![VS Code Git Clone command](graphics/git.png)
 
-### Build docker image
+### Build Docker Image
 
-- Navigate into `src` and find the file named `Dockerfile.example`. The `Dockerfile.example` is an example Dockerfile that can be used to build the docker image(s) of the service(s) that runs in this application example. If you choose to use these, rename them to `Dockerfile` before proceeding
+- Navigate into `src` and find the file named `Dockerfile.example`. The `Dockerfile.example` is an example Dockerfile that can be used to build the docker image(s) of the service(s) that runs in this application example. If you choose to use this example file, rename it to `Dockerfile` before proceeding
 - Open a console in the root folder (where the `docker-compose` file is)
 - Use the `docker compose build` (replaces the older `docker-compose build`) command to build the docker image of the service which is specified in the docker-compose.yml file.
 - These Docker images can now be used to build your app with the Industrial Edge App Publisher
@@ -49,27 +51,29 @@ git clone https://github.com/industrial-edge/qr-code-scanner.git
 
 ## Upload Scanner App to the Industrial Edge Management
 
-Please find below a short description how to publish your application in your IEM.
+Please find below a short description how to publish your application to your IEM.
 
 For more detailed information please see the section for [uploading apps to the IEM](https://github.com/industrial-edge/upload-app-to-iem).
 
 ### Connect your Industrial Edge App Publisher
 
-- Connect your Industrial Edge App Publisher to your docker engine
+- Connect your Industrial Edge App Publisher to your Docker engine
 - Connect your Industrial Edge App Publisher to your Industrial Edge Management System
 
 ### Upload Scanner App using the Industrial Edge App Publisher
 
-- Create a new application using the Industrial Publisher
-- Add a app new version
-- Import the [docker-compose](../docker-compose.yml) file using the **Import YAML** button
+- Click on "Create Project" in the App Project region (you will be redirected to the IEM)
+- Create a new project with "Create Project" in the top right corner or use an existing project
+- Create an application
+- Go back to the Industrial Edge Publisher, refresh the app projects, select the application and add a new app version
+- Import the [docker-compose](../docker-compose.yml) file using the "Import YAML" button
 - The warning `Build (services >> scanner-service) is not supported` can be ignored
-- **Start Upload** to transfer the app to Industrial Edge Management
+- "Start Upload" to transfer the app to Industrial Edge Management
 - Further information about using the Industrial Edge App Publisher can be found in the [IE Hub](https://iehub.eu1.edge.siemens.cloud/documents/appPublisher/en/start.html)
 
-## Configuring application
+## Configuring Application
 
-You can find the configuration file ["param.json"](../cfg-data/param.json) in cfg-data folder. This configuration file can be used adjust several parameters of this application. You can see the structure of the file in the following example configuration:
+You can find the configuration file [param.json](../cfg-data/param.json) in cfg-data folder. This configuration file can be used to adjust several parameters of this application. You can see the structure of the file in the following example configuration:
 
 **param.json:**
 
@@ -81,7 +85,7 @@ You can find the configuration file ["param.json"](../cfg-data/param.json) in cf
         "Password": "edge",
         "Metadata": "ie/m/j/simatic/v1/opcuac1/dp",
         "Topic": "ie/d/j/simatic/v1/opcuac1/dp/w/PLC_OPC",
-        "Variable": "GDB_appSignals_APP_QRCode"
+        "Variable": "GDB.appSignals.APP_QRCode"
     }
 ```
 
@@ -95,53 +99,61 @@ You can find the configuration file ["param.json"](../cfg-data/param.json) in cf
 
 Adjust the configuration file depending on your needs.
 
-## Create & Deploy configuration file
+## Create & Deploy Configuration File
 
 The system offers several possibilities configuring your application. The following steps describes two available options:
 
 - Configuring via [Template File](#configuration-via-template-file)
 - Configuring via [JSON Schema UI](#configuration-via-json-schema-ui)
 
-### Configuration via template file
+### Configuration via Template File
 
-Once you have successfully uploaded the QR Code Scanner application to your IEM you need to add the [configuration file](../cfg-data/param.json) to your application. You can either choose between version and non versioned configuration files. The non version configuration file will be described in the next steps.
-Go to **Applications/ My Projects** and open the QR Code Scanner application. Here you can create a new configuration file.
+Once you have successfully uploaded the QR code scanner application to your IEM you need to add the [configuration file](../cfg-data/param.json) to your application. You can either choose between version and non versioned configuration files. The non version configuration file will be described in the next steps.
+Go to "App Projects", select your project and open your QR code scanner application. Here you can create a new configuration file.
 
 **Add Configuration:**
 
+Click on "Configurations" and in the upcoming window "Add Configuration".
 ![deploy VFC](./graphics/add_config_file.png)
 
 **Configure Configuration:**
 
 ![deploy VFC](./graphics/configure_config.png)
 
-**Deploy application with configuration file:**
+Make sure to use this [configuration file](../cfg-data/param.json).
 
-During the deploying process of the application you need to select the configuration file, if needed you can adapt the configuration file before deploying.
+**Deploy Application with Configuration File:**
 
-**Deploy Application:**
+During the deploying process of the application you need to select the configuration file you just created.
 
 ![deploy VFC](./graphics/deploy_config.png)
 
 ### Configuration via JSON Schema UI
+Using the JSON schema option the application can be configured via a graphical UI during the download of the application to the edge device or when updating the configuration. All needed parameters can be configured here. You need to use this [configuration file](../cfg-data/json_schema/param.json) for this method.
 
-Using the JSON Schema option the application can be configured via graphical UI during downloading of the application. All needed parameters can be configured in the UI:
+**Adjust App Settings:**
 
-**Configure application:**
+Before uploading the JSON schema you need to enable an external configurator first:
 
-![schema](./graphics/json_schema_ui.png)
-
-**Add Configuration:**
-
-Before [uploading](#upload-scanner-app-to-the-industrial-edge-managment) the application with the Industrial Edge Publisher you can add the JSON Schema via the **"+Configurations"** button. Add a new configuration (in the IE Publisher), select the JSON Schema option and upload the [JSON Schema file](../cfg-data/json_schema/).
+![schema redirect](./graphics/json_schema_configuration_prerequisite.png)
 
 **Add JSON Schema:**
 
+Go back to the overview of the app, click on "Configurations" and in the upcoming window "Add Configuration".
+
 ![json_configuration](./graphics/json_schema_configuration.png)
 
-During downloading of the QR Code Scanner application you can now select the added JSON Schema and configure the application via the configuration UI.
+Make sure to use the correct [configuration file](../cfg-data/json_schema/param.json).
 
-**Additional information:**
+**Configure Application:** 
+
+As soon as you deploy the application (or if updating the configuration) you can now adjust the configuration:
+
+![schema](./graphics/json_schema_ui.png)
+
+Before clicking Next make sure to have checked the checkmark at the top left hand corner.
+
+**Additional Information:**
 
 Further information about creating your own JSON Schema UI can be found:
 

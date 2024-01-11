@@ -1,8 +1,8 @@
 # QR Code Scanner App, which sends scanned QR Code to PLC
-# Copyright 2020 Siemens AG
+# Copyright 2023 Siemens AG
 # This file is subject to the terms and conditions of the MIT License.  
 # See LICENSE file in the top-level directory.
-# Date: 05.05.2021
+# Date: 22.12.2023
 
 import paho.mqtt.client as mqtt
 from createDict import getDict
@@ -26,7 +26,7 @@ class mqttclient:
 
     """
     mqttclient access the IE-Databus and 
-    returns the Metadata from the dedicated connection of the S7 Connector
+    returns the Metadata from the dedicated connection of the OPCUA Connector
     
     """
 
@@ -36,7 +36,7 @@ class mqttclient:
 
         # Initialize dictionary for Metadata
         self.IDDict = {}
-        # IE Databus and S7 Connector information
+        # IE Databus and OPCUA Connector information
         self.broker = broker
         self.mqtt_user = user
         self.mqtt_password = password
@@ -56,7 +56,7 @@ class mqttclient:
         self.IDDict = getDict(msg, self.plc_connection) 
         
         print("INFO | New message received: " + msg)
-        print("INFO | Extracted dict: " + self.IDDict)
+        print("INFO | Extracted dict: " + str(self.IDDict))
         sys.stdout.flush()
 
     def on_connect(self, client, userdata, flags, rc):
@@ -148,7 +148,7 @@ for event in qrdevice.read_loop():
         
         # Check for QRCode suffix
         if event.code == CONST_ENTER:          
-            # Copy barcode to S7 Connector topic
+            # Copy barcode to OPCUA topic
             PLC_QR_Code['vals'][0]['id'] = (my_mqtt_client.IDDict.get(params['Variable']))
             PLC_QR_Code['vals'][0]['val'] = barcode
             # Publish MQTT Topic and flush to logs

@@ -83,19 +83,19 @@
     },
     "Topic": {
       "title": "IE Databus topic",
-	  "default": "ie/d/j/simatic/v1/s7c1/dp/w/PLC_S7",
+	  "default": "ie/d/j/simatic/v1/opcuac1/dp/w/PLC_OPC",
       "type": "string",
 	  "minLength": 1
     },
     "Variable": {
       "title": "PLC Varibale",
-	  "default": "GDB_appSignals_APP_QRCode",
+	  "default": "GDB.appSignals.APP_QRCode",
       "type": "string",
 	  "minLength": 1
     },
     "Metadata": {
       "title": "Metadata",
-	  "default": "ie/m/j/simatic/v1/s7c1/dp",
+	  "default": "ie/m/j/simatic/v1/opcuac1/dp",
       "type": "string",
 	  "minLength": 1
     },
