@@ -60,13 +60,13 @@ The check is done in the **check_for_scanner** function in the **main.py** scrip
 
 ## Publishing Code to Databus
 
-After the QR code is scanned and read by the application it is published to the OPC UA Connector topic of the IE Databus. As the IE Databus is based on a MQTT broker the python library **paho-mqtt** is used to publish values on the IE Databus.
+After the QR code is scanned and read by the application it is published to the OPC UA Connector topic of the Databus. As the Databus is based on a MQTT broker the python library **paho-mqtt** is used to publish values on the Databus.
 
 This library can be imported by: **import paho.mqtt.client** **as** **mqtt**
 
 ### Initializing MQTT client
 
-Before publishing data to the IE Databus the MQTT client needs to be initialized, the connection to the broker established and the loop for accessing the broker started. As the IE Databus is protected by user and password the credentials need to be set before connecting to the broker.
+Before publishing data to the Databus the MQTT client needs to be initialized, the connection to the broker established and the loop for accessing the broker started. As the Databus is protected by user and password the credentials need to be set before connecting to the broker.
 
 **Excerpt from main.py:**
 
@@ -90,7 +90,7 @@ The MQTT connection is handled by the  the `class mqttclient`, which is initiali
 
 ### Publishing QR Code
 
-As soon as the suffix (enter character) of the QR code is detected by the application the scanned code is published to IE Databus. The QR code as well as the IE Databus topic are printed to the logs using the **print** and **flush** commands.
+As soon as the suffix (enter character) of the QR code is detected by the application the scanned code is published to Databus. The QR code as well as the Databus topic are printed to the logs using the **print** and **flush** commands.
 
 **Excerpt from main.py:**
 
