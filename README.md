@@ -35,15 +35,15 @@ The scanner type, PLC tag, Databus topic as well as Databus credentials can be c
 
 ### Used Components
 
-- Industrial Edge App Publisher V1.12.7
+- Industrial Edge App Publisher V1.13.5
 - Docker Engine 24.0.6
 - Docker Compose V2.21.0
-- Common Connector Configurator V1.9.1-1
-- Databus V2.3.1-2
-- Databus Configurator V2.0.0-5
-- Industrial Edge Device V1.12.0-10
+- Common Configurator V1.9.0
+- Databus V2.2.0-3
+- Databus Configurator V2.3.1-4
+- Industrial Edge Device V1.16.1-1-a
 - IE App Configuration Service V1.3.2
-- OPC UA Connector V2.1.0-0
+- OPC UA Connector V2.0.1.0
 - QR Code Scanner: SIMATIC MV320
 - TIA Portal V18 (V16 minimum)
 - PLC: CPU 1518 FW 2.8.3
